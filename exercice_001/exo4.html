@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+
+    <div class="columns">
+        <div class="column">
+            <h1 class="title" id="main-title">#main-title</h1>
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="column">
+            <div id="rect" style="width: 400px; height: 400px; border-color: black; border: solid; background-color: deeppink;">
+                <span>#rect</span>
+            </div>
+
+            <div>
+                <p>Le rectangle possede une aire de : <span id="area">#area</span></p>
+                <p>Le rectangle possede un périmetre de : <span id="perimeter">#perimeter</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="column">
+            <form>
+                <label> Nouvelle hauteur
+                    <input class="input" id="height" min="0" placeholder="#height" type="number">
+                </label>
+                <br>
+
+                <label> Nouvelle largeur
+                    <input class="input" id="width" min="0" placeholder="#width" type="number">
+                </label>
+                <button class="button is-primary" type="button" onclick="changeRectangle()">Changer</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="exo4.js"></script>
+
+</body>
+</html>
