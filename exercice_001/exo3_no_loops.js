@@ -60,7 +60,6 @@ function averageNumericValues(value1, value2, value3, value4) {
     return sum / n;
 }
 
-fun
 
 function averageSquareOfNumericValues(value1, value2, value3, value4) {
     let n = countNumberOfNumericValues(value1, value2, value3, value4);
