@@ -407,5 +407,179 @@ describe("question 11", function() {
     });
 });
 
+describe("question 12", function() {
+
+    it("should mark when sorted numbers", async function () {
+        const expt = "les données sont ordonnées";
+        document.getElementById("input-1").value = 1;
+        document.getElementById("input-2").value = 2;
+        document.getElementById("input-3").value = 3;
+        document.getElementById("input-4").value = 4;
+
+        document.getElementById("button-11").click();
+        await sleep(100);
+
+        assert.equal(expt, document.getElementById("result-box-3").innerText)
+    });
+
+    it("should mark when sorted numbers (2)", async function () {
+        const expt = "les données sont ordonnées";
+        document.getElementById("input-1").value = 1;
+        document.getElementById("input-2").value = 1;
+        document.getElementById("input-3").value = 2;
+        document.getElementById("input-4").value = 2;
+
+        document.getElementById("button-11").click();
+        await sleep(100);
+
+        assert.equal(expt, document.getElementById("result-box-3").innerText)
+    });
+
+    it("should mark when not a number", async function () {
+        const expt = "les données ne sont pas ordonnées";
+        document.getElementById("input-1").value = 1;
+        document.getElementById("input-2").value = 1;
+        document.getElementById("input-3").value = 2;
+        document.getElementById("input-4").value = "hello";
+
+        document.getElementById("button-11").click();
+        await sleep(100);
+
+        assert.equal(expt, document.getElementById("result-box-3").innerText)
+    });
+
+    it("should mark when no numbers", async function () {
+        const expt = "les données ne sont pas ordonnées";
+        document.getElementById("input-1").value = "a";
+        document.getElementById("input-2").value = "b";
+        document.getElementById("input-3").value = "c";
+        document.getElementById("input-4").value = "e";
+
+        document.getElementById("button-11").click();
+        await sleep(100);
+
+        assert.equal(expt, document.getElementById("result-box-3").innerText)
+    });
+
+});
+
+
+describe("question 13", function() {
+
+    it("should work as expected (1)", async function () {
+        const minMessage = "Minima";
+        const maxMessage = "Maxima";
+        const noMinOrMaxMessage = "Ni minima, ni maxima";
+        const noNumberMessage = "Pas un nombre";
+        document.getElementById("input-1").value = 1;
+        document.getElementById("input-2").value = 2;
+        document.getElementById("input-3").value = 3;
+        document.getElementById("input-4").value = 4;
+
+        document.getElementById("button-12").click();
+        await sleep(100);
+
+        assert.equal(minMessage, document.getElementById("result-box-1").innerText)
+        assert.equal(noMinOrMaxMessage, document.getElementById("result-box-2").innerText)
+        assert.equal(noMinOrMaxMessage, document.getElementById("result-box-3").innerText)
+        assert.equal(maxMessage, document.getElementById("result-box-4").innerText)
+    });
+
+    it("should work as expected (2)", async function () {
+        const minMessage = "Minima";
+        const maxMessage = "Maxima";
+        const noMinOrMaxMessage = "Ni minima, ni maxima";
+        const noNumberMessage = "Pas un nombre";
+        document.getElementById("input-1").value = 1;
+        document.getElementById("input-2").value = 2;
+        document.getElementById("input-3").value = 1;
+        document.getElementById("input-4").value = 2;
+
+        document.getElementById("button-12").click();
+        await sleep(100);
+
+        assert.equal(minMessage, document.getElementById("result-box-1").innerText)
+        assert.equal(maxMessage, document.getElementById("result-box-2").innerText)
+        assert.equal(minMessage, document.getElementById("result-box-3").innerText)
+        assert.equal(maxMessage, document.getElementById("result-box-4").innerText)
+    });
+
+    it("should work as expected (3)", async function () {
+        const minMessage = "Minima";
+        const maxMessage = "Maxima";
+        const noMinOrMaxMessage = "Ni minima, ni maxima";
+        const noNumberMessage = "Pas un nombre";
+        document.getElementById("input-1").value = 1;
+        document.getElementById("input-2").value = "ramallah";
+        document.getElementById("input-3").value = 1;
+        document.getElementById("input-4").value = 2;
+
+        document.getElementById("button-12").click();
+        await sleep(100);
+
+        assert.equal(minMessage, document.getElementById("result-box-1").innerText)
+        assert.equal(noNumberMessage, document.getElementById("result-box-2").innerText)
+        assert.equal(minMessage, document.getElementById("result-box-3").innerText)
+        assert.equal(maxMessage, document.getElementById("result-box-4").innerText)
+    });
+
+    it("should work as expected (4)", async function () {
+        const minMessage = "Minima";
+        const maxMessage = "Maxima";
+        const noMinOrMaxMessage = "Ni minima, ni maxima";
+        const noNumberMessage = "Pas un nombre";
+        document.getElementById("input-1").value = "";
+        document.getElementById("input-2").value = "";
+        document.getElementById("input-3").value = "";
+        document.getElementById("input-4").value ="";
+
+        document.getElementById("button-12").click();
+        await sleep(100);
+
+        assert.equal(noNumberMessage, document.getElementById("result-box-1").innerText)
+        assert.equal(noNumberMessage, document.getElementById("result-box-2").innerText)
+        assert.equal(noNumberMessage, document.getElementById("result-box-3").innerText)
+        assert.equal(noNumberMessage, document.getElementById("result-box-4").innerText)
+    });
+
+    it("should work as expected (5)", async function () {
+        const minMessage = "Minima";
+        const maxMessage = "Maxima";
+        const noMinOrMaxMessage = "Ni minima, ni maxima";
+        const noNumberMessage = "Pas un nombre";
+        document.getElementById("input-1").value = 5;
+        document.getElementById("input-2").value = "";
+        document.getElementById("input-3").value = "";
+        document.getElementById("input-4").value = 1;
+
+        document.getElementById("button-12").click();
+        await sleep(100);
+
+        assert.equal(maxMessage, document.getElementById("result-box-1").innerText)
+        assert.equal(noNumberMessage, document.getElementById("result-box-2").innerText)
+        assert.equal(noNumberMessage, document.getElementById("result-box-3").innerText)
+        assert.equal(minMessage, document.getElementById("result-box-4").innerText)
+    });
+
+    it("should work as expected (6)", async function () {
+        const minMessage = "Minima";
+        const maxMessage = "Maxima";
+        const noMinOrMaxMessage = "Ni minima, ni maxima";
+        const noNumberMessage = "Pas un nombre";
+        document.getElementById("input-1").value = 5;
+        document.getElementById("input-2").value = 5;
+        document.getElementById("input-3").value = 5;
+        document.getElementById("input-4").value = 5;
+
+        document.getElementById("button-12").click();
+        await sleep(100);
+
+        assert.equal(minMessage, document.getElementById("result-box-1").innerText)
+        assert.equal(minMessage, document.getElementById("result-box-2").innerText)
+        assert.equal(minMessage, document.getElementById("result-box-3").innerText)
+        assert.equal(minMessage, document.getElementById("result-box-4").innerText)
+    });
+
+});
 
 mocha.run();
