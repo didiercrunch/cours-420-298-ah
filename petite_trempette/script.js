@@ -3,6 +3,7 @@
 function add(a, b){
     return a + b;
 }
+
 alert(add(103, 198));
 
 function multiply(a, b){
@@ -45,12 +46,12 @@ alert(absolutValue(-76));
 
 function isMinor(age){
     if(age < 18){
-        return ""
+        return "la personne est mineur";
     }
     if(age < 21){
         return "la personne est mineur au états-unis";
     }
-    return "la personne est majeur"
+    return "la personne est majeur";
 }
 
 alert(isMinor(16));
