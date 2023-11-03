@@ -275,6 +275,18 @@ describe("question 9", function(){
         assert.equal(expt, document.getElementById("result-box-4").innerText)
     });
 
+    it("should remove negative numbers when computing the sum", async function() {
+        const expt = 2.6 + 0 + 4.5 + 0;
+        document.getElementById("input-1").value = 2.6;
+        document.getElementById("input-2").value = -90;
+        document.getElementById("input-3").value = 4.5;
+        document.getElementById("input-4").value = -7;
+
+        document.getElementById("button-8").click();
+        await sleep(100);
+        assert.equal(expt, document.getElementById("result-box-4").innerText)
+    });
+
     it("should compute correctly when no values", async function() {
         const expt = 0;
         document.getElementById("input-1").value = "";

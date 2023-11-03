@@ -126,11 +126,18 @@ function parseFloatOr0(userInput) {
     return parseFloatOrDefault(userInput, 0);
 }
 
+function valueOrZeroIfNegative(value){
+    if(value < 0){
+        return 0;
+    }
+    return value;
+}
+
 function getMessageForExo9(userInput1, userInput2, userInput3, userInput4) {
-    return parseFloatOr0(userInput1)
-        + parseFloatOr0(userInput2)
-        + parseFloatOr0(userInput3)
-        + parseFloatOr0(userInput4);
+    return valueOrZeroIfNegative(parseFloatOr0(userInput1))
+        + valueOrZeroIfNegative(parseFloatOr0(userInput2))
+        + valueOrZeroIfNegative(parseFloatOr0(userInput3))
+        + valueOrZeroIfNegative(parseFloatOr0(userInput4));
 }
 
 function exo9() {
