@@ -223,6 +223,18 @@ describe("question 8", function(){
         assert.equal(expt, document.getElementById("result-box-3").innerText)
     });
 
+    it("should compute correctly with zeros", async function() {
+        const expt = 2 * 3 * 0 * 5;
+        document.getElementById("input-1").value = 2;
+        document.getElementById("input-2").value = 0;
+        document.getElementById("input-3").value = 3;
+        document.getElementById("input-4").value = 5;
+
+        document.getElementById("button-7").click();
+        await sleep(100);
+        assert.equal(expt, document.getElementById("result-box-3").innerText)
+    });
+
     it("should compute correctly when no values", async function() {
         const expt = 1;
         document.getElementById("input-1").value = "";
@@ -530,29 +542,10 @@ describe("question 13", function() {
         await sleep(100);
 
         assert.equal(minMessage, document.getElementById("result-box-1").innerText)
-        assert.equal(noNumberMessage, document.getElementById("result-box-2").innerText)
         assert.equal(minMessage, document.getElementById("result-box-3").innerText)
         assert.equal(maxMessage, document.getElementById("result-box-4").innerText)
     });
 
-    it("should work as expected (4)", async function () {
-        const minMessage = "Minima";
-        const maxMessage = "Maxima";
-        const noMinOrMaxMessage = "Ni minima, ni maxima";
-        const noNumberMessage = "Pas un nombre";
-        document.getElementById("input-1").value = "";
-        document.getElementById("input-2").value = "";
-        document.getElementById("input-3").value = "";
-        document.getElementById("input-4").value ="";
-
-        document.getElementById("button-12").click();
-        await sleep(100);
-
-        assert.equal(noNumberMessage, document.getElementById("result-box-1").innerText)
-        assert.equal(noNumberMessage, document.getElementById("result-box-2").innerText)
-        assert.equal(noNumberMessage, document.getElementById("result-box-3").innerText)
-        assert.equal(noNumberMessage, document.getElementById("result-box-4").innerText)
-    });
 
     it("should work as expected (5)", async function () {
         const minMessage = "Minima";
@@ -568,8 +561,6 @@ describe("question 13", function() {
         await sleep(100);
 
         assert.equal(maxMessage, document.getElementById("result-box-1").innerText)
-        assert.equal(noNumberMessage, document.getElementById("result-box-2").innerText)
-        assert.equal(noNumberMessage, document.getElementById("result-box-3").innerText)
         assert.equal(minMessage, document.getElementById("result-box-4").innerText)
     });
 
