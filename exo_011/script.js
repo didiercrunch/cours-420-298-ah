@@ -19,6 +19,7 @@ function getAttribute(object, key, defaultValue){
     return defaultValue;
 }
 
+
 let key = "age"
 let object = {age: 100};
 let defaultValue = 0;
@@ -27,3 +28,24 @@ console.log("2.a >> " + getAttribute({name: "claudette"}, "name", 0)) // claudet
 
 console.log("2.a >> " + getAttribute({age: 100}, "name", "no name")) // no name
 console.log("2.a >> " + getAttribute({name: "claudette"}, "age", 0)) // 0
+
+
+
+function getAttributeWithLoop(object, targetKey, defaultValue){
+    for(let key of Object.keys(object)){
+        let value = object[key];
+        if(key === targetKey){
+            return value;
+        }
+    }
+    return defaultValue;
+}
+
+
+console.log("2'.a >> " + getAttributeWithLoop(object, key, defaultValue)) // 100
+console.log("2'.a >> " + getAttributeWithLoop({name: "claudette"}, "name", 0)) // claudette
+
+console.log("2'.a >> " + getAttributeWithLoop({age: 100}, "name", "no name")) // no name
+console.log("2'.a >> " + getAttributeWithLoop({name: "claudette"}, "age", 0)) // 0
+
+
