@@ -127,31 +127,31 @@ describe("question 4",  function(){
 
 })
 
-describe("question 6",  function(){
-    async function testQuestion6(userInput, expt){
-        document.getElementById("input-1").value = userInput;
-        document.getElementById("button-5").click();
+describe("question 5",  function(){
+    async function testQuestion5(userInput, expt){
+        document.getElementById("input-4").value = userInput;
+        document.getElementById("button-4").click();
         await sleep(100);
-        assert.equal(expt, document.getElementById("result-box-1").innerText)
+        assert.equal(expt, document.getElementById("result-box-4").innerText)
     }
 
     it("should find the proper number of existing country is input by user", async function(){
-        await testQuestion6("Canada", 3);
+        await testQuestion5("Canada", 3);
     });
 
     it("should show zero when non existing country is input by user", async function(){
-        await testQuestion6("France", 0);
+        await testQuestion5("France", 0);
     });
 
 })
 
 
-describe("question 7",  function(){
+describe("question 6",  function(){
     async function testQuestion7(userInput, expt){
-        document.getElementById("input-2").value = userInput;
-        document.getElementById("button-6").click();
+        document.getElementById("input-1").value = userInput;
+        document.getElementById("button-5").click();
         await sleep(100);
-        assert.equal(expt, document.getElementById("result-box-2").innerText)
+        assert.equal(expt, document.getElementById("result-box-1").innerText)
     }
 
     it("should find the proper population of existing country is input by user", async function(){
@@ -164,29 +164,29 @@ describe("question 7",  function(){
 })
 
 
+describe("question 7",  function(){
+    async function testQuestion7(userInput, expt){
+        document.getElementById("input-2").value = userInput;
+        document.getElementById("button-6").click();
+        await sleep(100);
+        assert.equal(expt, document.getElementById("result-box-2").innerText)
+    }
+
+    it("should find the proper city of existing country is input by user", async function(){
+        await testQuestion7("Canada", "Toronto");
+    });
+
+    it("should show zero when non existing country is input by user", async function(){
+        await testQuestion7("France", "aucune ville trouvée");
+    });
+})
+
 describe("question 8",  function(){
     async function testQuestion8(userInput, expt){
         document.getElementById("input-3").value = userInput;
         document.getElementById("button-7").click();
         await sleep(100);
         assert.equal(expt, document.getElementById("result-box-3").innerText)
-    }
-
-    it("should find the proper city of existing country is input by user", async function(){
-        await testQuestion8("Canada", "Toronto");
-    });
-
-    it("should show zero when non existing country is input by user", async function(){
-        await testQuestion8("France", "aucune ville trouvée");
-    });
-})
-
-describe("question 9",  function(){
-    async function testQuestion8(userInput, expt){
-        document.getElementById("input-4").value = userInput;
-        document.getElementById("button-8").click();
-        await sleep(100);
-        assert.equal(expt, document.getElementById("result-box-4").innerText)
     }
 
     it("should find the proper country of existing person entered by input by user", async function(){
@@ -196,6 +196,28 @@ describe("question 9",  function(){
     it("should show error message when person not found", async function(){
         await testQuestion8("Marie Antoinette", "aucune personne trouvée");
     });
+})
+
+describe("question 9",  function(){
+    async function testQuestion9(userInput, expt){
+        document.getElementById("input-4").value = userInput;
+        document.getElementById("button-8").click();
+        await sleep(100);
+        assert.equal(expt, document.getElementById("result-box-4").innerText)
+    }
+
+    it("Canada", async function(){
+        await testQuestion9("Canada", 3);
+    });
+
+    it("Mexique", async function(){
+        await testQuestion9("Mexique", 0);
+    });
+
+    it("France", async function(){
+        await testQuestion9("France", 0);
+    });
+
 })
 
 

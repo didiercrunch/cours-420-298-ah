@@ -116,13 +116,13 @@ function findNumberOfCitiesInCountry(countryName) {
     return n;
 }
 
-function exo6(){
-    const userInput = document.getElementById("input-1").value;
-    document.getElementById("result-box-1").innerText = findNumberOfCitiesInCountry(userInput);
+function exo5(){
+    const userInput = document.getElementById("input-4").value;
+    document.getElementById("result-box-4").innerText = findNumberOfCitiesInCountry(userInput);
 }
 
 
-document.getElementById("button-5").onclick = exo6;
+document.getElementById("button-4").onclick = exo5;
 
 
 function findPopulationOfCitiesInCountry(countryName) {
@@ -135,13 +135,13 @@ function findPopulationOfCitiesInCountry(countryName) {
     return population;
 }
 
-function exo7(){
-    const userInput = document.getElementById("input-2").value;
-    document.getElementById("result-box-2").innerText = findPopulationOfCitiesInCountry(userInput);
+function exo6(){
+    const userInput = document.getElementById("input-1").value;
+    document.getElementById("result-box-1").innerText = findPopulationOfCitiesInCountry(userInput);
 }
 
 
-document.getElementById("button-6").onclick = exo7;
+document.getElementById("button-5").onclick = exo6;
 
 function getCitiesInCountry(country) {
     const ret = [];
@@ -177,13 +177,13 @@ function findLargestCitiesInCountry(country){
 
 }
 
-function exo8(){
-    const userInput = document.getElementById("input-3").value;
-    document.getElementById("result-box-3").innerText = findLargestCitiesInCountry(userInput);
+function exo7(){
+    const userInput = document.getElementById("input-2").value;
+    document.getElementById("result-box-2").innerText = findLargestCitiesInCountry(userInput);
 }
 
 
-document.getElementById("button-7").onclick = exo8;
+document.getElementById("button-6").onclick = exo7;
 
 
 function getPersonByName(personName) {
@@ -212,9 +212,39 @@ function findCountryOfOrigin(personName){
 }
 
 
+function exo8(){
+    const userInput = document.getElementById("input-3").value;
+    document.getElementById("result-box-3").innerText = findCountryOfOrigin(userInput);
+}
+
+
+document.getElementById("button-7").onclick = exo8;
+
+
+function getPersonsByCityName(cityName) {
+    const ret = [];
+    for(const person of persons){
+        if(person.city === cityName){
+            ret.push(person);
+        }
+    }
+    return ret;
+}
+
+function findAllPeopleInCountryByName(countryName) {
+    let ret = [];
+    for(const city of cities){
+        if(city.country === countryName){
+            ret = ret.concat(getPersonsByCityName(city.name));
+        }
+    }
+    return ret;
+
+}
+
 function exo9(){
     const userInput = document.getElementById("input-4").value;
-    document.getElementById("result-box-4").innerText = findCountryOfOrigin(userInput);
+    document.getElementById("result-box-4").innerText = findAllPeopleInCountryByName(userInput).length;
 }
 
 
